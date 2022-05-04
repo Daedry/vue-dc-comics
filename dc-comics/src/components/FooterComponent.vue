@@ -4,15 +4,26 @@
       <div class="info-top">
         <div class="infos">
           <div class="info">
+            <!-- <ul v-for="(info, index) in infos" :key="index"> -->
             <h5>dc comics</h5>
             <ul>
-              <li><a href="#">Characters</a></li>
-              <li><a href="#">Comics</a></li>
-              <li><a href="#">Movies</a></li>
-              <li><a href="#">TV</a></li>
-              <li><a href="#">Games</a></li>
-              <li><a href="#">Videos</a></li>
-              <li><a href="#">News</a></li>
+
+              <!-- <li>
+                <h5>
+                  {{ info.title }}
+                </h5>
+              </li> -->
+              <!-- <ul>
+                <li v-for="(txt, i) in text" :key="i">
+                  <a href="#"> {{ txt[activeText(index)] }} </a>
+                </li> -->
+                <li><a href="#">Comics</a></li>
+                <li><a href="#">Movies</a></li>
+                <li><a href="#">TV</a></li>
+                <li><a href="#">Games</a></li>
+                <li><a href="#">Videos</a></li>
+                <li><a href="#">News</a></li>
+              <!-- </ul> -->
             </ul>
           </div>
 
@@ -115,17 +126,72 @@ export default {
   props: {
     msg: String,
   },
+
+  data: {
+    active: 0,
+  },
+
+  methods: {
+    activeText(i) {
+      return (this.active = i);
+    },
+  },
+
+  data() {
+    return {
+      infos: [
+        {
+          title: "dc comics",
+          text: [
+            "Characters",
+            "Comics",
+            "Movies",
+            "TV",
+            "Games",
+            "Videos",
+            "News",
+          ],
+        },
+
+        {
+          title: "dc",
+          text: [
+            "Terms Of Use",
+            "Privacy Policy(new)",
+            "Ad Choises",
+            "Advertising",
+            "Jobs",
+            "Subscriptions",
+            "Talent Workshops",
+            "CPSC Certificates",
+            "Ratings",
+            "Shop Help",
+            "Contact Us",
+          ],
+        },
+
+        {
+          title: "sites",
+          text: [
+            "DC",
+            "MAD Magazine",
+            "DC Kids",
+            "DC Universe",
+            "DC Power Visa",
+          ],
+        },
+        {
+          title: "shop",
+          text: ["Shop DC", "Shop DC Collectibles"],
+        },
+      ],
+    };
+  },
 };
 </script>
 
 <style scoped lang="scss">
-@import "@/assets/sass/variables";
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+@import "@/assets/sass/style.scss";
 
 img {
   width: 100%;
@@ -221,7 +287,7 @@ img {
           font-size: 18px;
           text-transform: uppercase;
 
-          h3{
+          h3 {
             padding: 2.25rem 0.5rem 2rem 0;
           }
 
@@ -230,7 +296,7 @@ img {
 
             li {
               list-style: none;
-              padding: 2.25rem 0.45rem ;
+              padding: 2.25rem 0.45rem;
 
               img {
                 width: 28px;
